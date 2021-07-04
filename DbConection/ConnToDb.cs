@@ -99,6 +99,27 @@ namespace DbConection
             }
         }
 
+        public static List<String> GetPlaneNums()
+        {
+            using (airportDB = new AirportContext())
+            {
+                var planeNums = from plane in airportDB.Planes
+                                select plane.planeNum;
+                airportDB.Planes.Load();
+                return planeNums.ToList();
+            }
+        }
+        public static List<DBPassanger> GetPassangerByPlane(string planenum)
+        {
+            using (airportDB = new AirportContext())
+            {
+                var passangers = from passanger in airportDB.Passangers
+                                 where passanger.planeNum.Equals(planenum)
+                                 select passanger;
+                airportDB.Passangers.Load();
+                return passangers.ToList();
+            }
+        }
         #endregion
 
 
@@ -128,45 +149,52 @@ namespace DbConection
                     }
                 }
             }
-            
+
         }
         public static void DelPassenger(string passportNum)
         {
-            if (airportDB.Passangers.Find(passportNum) == null)
+            using (airportDB = new AirportContext())
             {
-                throw new DbPassangerNotFoundExeption("Passanger not found", passportNum);
-            }
-            else
-            {
-                var passangerToDel = new DBPassanger()
+                if (airportDB.Passangers.Find(passportNum) == null)
                 {
-                    passportNum = passportNum
-                };
-                using (airportDB = new AirportContext())
+                    throw new DbPassangerNotFoundExeption("Passanger not found", passportNum);
+                }
+                else
                 {
-                    airportDB.Passangers.Attach(passangerToDel);
-                    airportDB.Passangers.Remove(passangerToDel);
-                    airportDB.SaveChanges();
+                    var passangerToDel = new DBPassanger()
+                    {
+                        passportNum = passportNum
+                    };
+                    using (airportDB = new AirportContext())
+                    {
+                        airportDB.Passangers.Attach(passangerToDel);
+                        airportDB.Passangers.Remove(passangerToDel);
+                        airportDB.SaveChanges();
+                    }
                 }
             }
+
         }
         public static void DelUser(string login)
         {
-            if (airportDB.Users.Find(login) == null)
+            using (airportDB = new AirportContext())
             {
-                throw new DbUserNotFoundExeption("User not found", login);
-            } 
-            else
-            {
-                var userToDel = new DBUser()
+                if (airportDB.Users.Find(login) == null)
                 {
-                    Login = login
-                };
-                using (airportDB = new AirportContext())
+                    throw new DbUserNotFoundExeption("User not found", login);
+                }
+                else
                 {
-                    airportDB.Users.Attach(userToDel);
-                    airportDB.Users.Remove(userToDel);
-                    airportDB.SaveChanges();
+                    var userToDel = new DBUser()
+                    {
+                        Login = login
+                    };
+                    using (airportDB = new AirportContext())
+                    {
+                        airportDB.Users.Attach(userToDel);
+                        airportDB.Users.Remove(userToDel);
+                        airportDB.SaveChanges();
+                    }
                 }
             }
         }

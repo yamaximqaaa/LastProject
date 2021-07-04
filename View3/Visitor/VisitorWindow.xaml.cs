@@ -23,5 +23,10 @@ namespace View3.Visitor
         {
             InitializeComponent();
         }
+
+        private void BuyTicket_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

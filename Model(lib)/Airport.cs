@@ -51,6 +51,11 @@ namespace Model
             }
         }
 
+        public static void DelUser(string login)
+        {
+            ConnToDb.DelUser(login);
+        }
+
         public static async Task<bool> AddUserAsync(User user)
         {
             var result = await Task.Run(() => AddUser(user));
@@ -128,6 +133,8 @@ namespace Model
             }
         }
 
+        
+
         public static async Task<bool> IsUserEmploeeAsync(string login, string password)
         {
             var result = await Task.Run(() => IsUserEmploee(login, password));
@@ -138,6 +145,11 @@ namespace Model
         #endregion
 
         #region AddGetPlane
+
+        public static List<String> GetAllPlaneNums()
+        {
+            return ConnToDb.GetPlaneNums();
+        }
 
         public static List<Plane> GetPlanes()
         {
@@ -162,6 +174,8 @@ namespace Model
                 return null;
             }
         }
+
+        
 
         public static bool AddPlane(Plane plane)
         {
@@ -203,6 +217,20 @@ namespace Model
 
         #endregion
 
+        #region AddGetPassangers
+
+        public static List<Passanger> GetPassangersByPlane(string planeNum)
+        {
+            List<Passanger> pass = new List<Passanger>();
+            foreach (var pas in ConnToDb.GetPassangerByPlane(planeNum))
+            {
+                pass.Add(pas);
+            }
+            return pass;
+        }
+
+        #endregion
+
         #region DelPlane
 
         public static void DelPlane(string planeNum)
@@ -218,11 +246,6 @@ namespace Model
         }
 
         #endregion
-
-        private static void CheckPlane(Plane planeToCheck)
-        {
-            
-        }
 
         #region StringCheck
 
@@ -275,6 +298,15 @@ namespace Model
         }
 
         #endregion
+
+        public static void AddPassanger(Passanger pas)
+        {
+            ConnToDb.AddPassanger(pas);
+        }
+        public static void DelPassanger(string passportNum)
+        {
+            ConnToDb.DelPassenger(passportNum);
+        }
 
     }
 }

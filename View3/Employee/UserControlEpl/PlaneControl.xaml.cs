@@ -34,8 +34,36 @@ namespace View3.Employee.UserControlEpl
             SetTimeComboBox();
             EnumsToCmboBox();
         }
+        private void myDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
-        
+            DataGrid dg = sender as DataGrid;
+            var dr = dg.SelectedItem as Plane;
+
+            if (dr != null)
+            {
+                plane_num.IsEnabled = true;
+                plane_num.Text = dr.planeNum;
+                _city.Text = dr.city;
+                _gate.Text = dr.gate;
+                _status.SelectedItem = dr.status;
+                _trminal.SelectedItem = dr.terminal;
+                _airline.SelectedItem = dr.airline;
+                day_In.DisplayDate = dr.timeIn.Date;
+                day_In.Text = dr.timeIn.Date.ToString();
+                day_Out.DisplayDate = dr.timeOut.Date;
+                day_Out.Text = dr.timeOut.Date.ToString();
+                in_Hours.SelectedItem = dr.timeIn.Hour;
+                in_Minutes.SelectedItem = dr.timeIn.Minute;
+                out_Hours.SelectedItem = dr.timeOut.Hour;
+                out_Minutes.SelectedItem = dr.timeOut.Minute;
+
+                add_btn.IsEnabled = false;
+                update_btn.IsEnabled = true;
+                delete_btn.IsEnabled = true;
+
+            }
+        }
 
         #region ButtonClick
         private void add_btn_Click(object sender, RoutedEventArgs e)
@@ -75,37 +103,8 @@ namespace View3.Employee.UserControlEpl
 
         #endregion
 
-        private void myDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-            DataGrid dg = sender as DataGrid;
-            var dr = dg.SelectedItem as Plane;
-
-            if (dr != null)
-            {
-                plane_num.IsEnabled = true;
-                plane_num.Text = dr.planeNum;
-                _city.Text = dr.city;
-                _gate.Text = dr.gate;
-                _status.SelectedItem = dr.status;
-                _trminal.SelectedItem = dr.terminal;
-                _airline.SelectedItem = dr.airline;
-                day_In.DisplayDate = dr.timeIn.Date;
-                day_In.Text = dr.timeIn.Date.ToString();
-                day_Out.DisplayDate = dr.timeOut.Date;
-                day_Out.Text = dr.timeOut.Date.ToString();
-                in_Hours.SelectedItem = dr.timeIn.Hour;
-                in_Minutes.SelectedItem = dr.timeIn.Minute;
-                out_Hours.SelectedItem = dr.timeOut.Hour;
-                out_Minutes.SelectedItem = dr.timeOut.Minute;
-
-                add_btn.IsEnabled = false;
-                update_btn.IsEnabled = true;
-                delete_btn.IsEnabled = true;
-
-            }
-        }
-
+        // TODO: Input data verification
+        #region AUDoperations  
         private void AUDoperations(AUD state)
         {
             String str = "";
@@ -126,9 +125,6 @@ namespace View3.Employee.UserControlEpl
             MessageBox.Show(str);
             UpdateDataGrid();
         }
-
-        #region AUDoperations
-
         private void Add()
         {
             var plane = new Plane()
@@ -169,6 +165,7 @@ namespace View3.Employee.UserControlEpl
         }
         #endregion
 
+        #region Aditional methods
         private void SetTimeComboBox()
         {
             in_Hours.ItemsSource = Enumerable.Range(1, 24).ToList();
@@ -208,6 +205,8 @@ namespace View3.Employee.UserControlEpl
 
             plane_num.IsEnabled = true;
         }
-        
+        #endregion
+
+
     }
 }

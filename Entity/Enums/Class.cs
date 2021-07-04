@@ -2,7 +2,7 @@
 {
     public enum Class
     {
-        Econom = 3000,
-        Business = 6300
+        Econom,
+        Business
     }
 }

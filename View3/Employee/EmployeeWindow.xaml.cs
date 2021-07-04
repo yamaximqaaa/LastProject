@@ -53,6 +53,10 @@ namespace View3.Employee
         {
             DataContext = new PlaneControlViewModel();
         }
+        private void PassangerControl_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new PassangerControlViewModel();
+        }
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             _currentUser = null;
@@ -61,5 +65,6 @@ namespace View3.Employee
         }
         #endregion
 
+        
     }
 }

@@ -7,7 +7,7 @@ namespace Abstractions.Passanger
     public interface IPassenger
     {
         #region passanger prop
-        int planeNum { get; set; }
+        string planeNum { get; set; }
         string name { get; set; }
         string secondName { get; set; }
         string nationality { get; set; }

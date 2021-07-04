@@ -81,6 +81,10 @@
     <Compile Include="Migrations\202107030112509_InitialCreate.designer.cs">
       <DependentUpon>202107030112509_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107041019382_InitialCreate1.cs" />
+    <Compile Include="Migrations\202107041019382_InitialCreate1.designer.cs">
+      <DependentUpon>202107041019382_InitialCreate1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107030112509_InitialCreate.resx">
       <DependentUpon>202107030112509_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107041019382_InitialCreate1.resx">
+      <DependentUpon>202107041019382_InitialCreate1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

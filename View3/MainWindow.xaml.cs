@@ -24,7 +24,7 @@ namespace View3
     /// </summary>
     public partial class MainWindow : Window
     {
-        RegistrationWindow registrationWindow = new RegistrationWindow();
+        RegistrationWindow registrationWindow;
         VisitorWindow visitorWindow;
         EmployeeWindow employeeWindow;
 
@@ -35,6 +35,7 @@ namespace View3
 
         private void RegisterClick(object sender, RoutedEventArgs e)
         {
+            registrationWindow = new RegistrationWindow();
             registrationWindow.Show();
         }
 

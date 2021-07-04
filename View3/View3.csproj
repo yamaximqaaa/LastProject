@@ -50,6 +50,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -74,6 +76,9 @@
     <Compile Include="Employee\UserControlEpl\ChangeBio.xaml.cs">
       <DependentUpon>ChangeBio.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Employee\UserControlEpl\PasangerControl.xaml.cs">
+      <DependentUpon>PasangerControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Employee\UserControlEpl\PlaneControl.xaml.cs">
       <DependentUpon>PlaneControl.xaml</DependentUpon>
     </Compile>
@@ -81,6 +86,7 @@
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Employee\ChangeBioViewModel.cs" />
+    <Compile Include="ViewModel\Employee\PassangerControlViewModel.cs" />
     <Compile Include="ViewModel\Employee\PlaneControlViewModel.cs" />
     <Compile Include="Visitor\VisitorWindow.xaml.cs">
       <DependentUpon>VisitorWindow.xaml</DependentUpon>
@@ -90,6 +96,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Employee\UserControlEpl\ChangeBio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Employee\UserControlEpl\PasangerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

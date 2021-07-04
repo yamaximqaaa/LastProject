@@ -11,7 +11,7 @@ namespace DbConection.Entities
 {
     public  class DBPassanger : IPassenger
     {
-        public int planeNum { get; set; }
+        public string planeNum { get; set; }
         public string name { get; set; }
         public string secondName { get; set; }
         public string nationality { get; set; }

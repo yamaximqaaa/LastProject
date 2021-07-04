@@ -1,4 +1,5 @@
-﻿using Model.Entities;
+﻿using Model;
+using Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,13 +22,29 @@ namespace View3.Employee.UserControlEpl
     /// </summary>
     public partial class ChangeBio : UserControl
     {
+        User currUser;
         public ChangeBio()
         {
             InitializeComponent();
+            //currUser = user;
+            //textBoxFirstName.Text = user.Name;
+            //textBoxLastName.Text = user.LastName;
+            //textBoxLogin.Text = user.Login;
+            //passwordBox1.Password = user.Password;
         }
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-
+            Cursor = Cursors.Wait;
+            Airport.DelUser(currUser.Login);
+            Airport.AddUser(new User()
+            {
+                IsEmploee = currUser.IsEmploee,
+                LastName = textBoxLastName.Text,
+                Login = textBoxLogin.Text,
+                Password = passwordBox1.Password,
+                Name = textBoxFirstName.Text
+            });
+            Cursor = Cursors.Arrow;
         }
     }
 }

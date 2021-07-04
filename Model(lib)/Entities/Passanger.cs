@@ -1,5 +1,6 @@
 ﻿using Abstractions.Airport;
 using Abstractions.Passanger;
+using DbConection.Entities;
 using Entity.Enums;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Model.Entities
 {
-    class Passanger : IPassenger, IAirportObj
+    public class Passanger : IPassenger
     {
-        public int planeNum { get; set; }
+        public string planeNum { get; set; }
         public string name { get; set; }
         public string secondName { get; set; }
         public string nationality { get; set; }
@@ -21,9 +22,37 @@ namespace Model.Entities
         public Class classF { get; set; }
         public int price { get; set; }
 
-        public void Print()
+        public static implicit operator DBPassanger(Passanger pass)
         {
-            throw new NotImplementedException();
+            var dbPs = new DBPassanger()
+            {
+                classF = pass.classF,
+                dateOfBirthday = pass.dateOfBirthday,
+                name = pass.name,
+                nationality = pass.nationality,
+                passportNum = pass.passportNum,
+                planeNum = pass.planeNum,
+                price = pass.price,
+                secondName = pass.secondName,
+                sex = pass.sex
+            };
+            return dbPs;
+        }
+        public static implicit operator Passanger(DBPassanger pass)
+        {
+            var dbPs = new Passanger()
+            {
+                classF = pass.classF,
+                dateOfBirthday = pass.dateOfBirthday,
+                name = pass.name,
+                nationality = pass.nationality,
+                passportNum = pass.passportNum,
+                planeNum = pass.planeNum,
+                price = pass.price,
+                secondName = pass.secondName,
+                sex = pass.sex
+            };
+            return dbPs;
         }
     }
 }

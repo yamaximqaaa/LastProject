@@ -5,8 +5,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View3.Visitor"
         mc:Ignorable="d"
-        Title="VisitorWindow" Height="450" Width="800">
+        Title="VisitorWindow"  Height="650" Width="1230">
+    <!--<Window.Resources>
+        <DataTemplate x:Name="ChangeBioTamplate" 
+                      DataType="{x:Type viewmodel:ChangeBioViewModel}">
+            <view:ChangeBio DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="PlaneControlTamplate"
+                      DataType="{x:Type viewmodel:PlaneControlViewModel}">
+            <view:PlaneControl DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="PassangerControlTamplate"
+                      DataType="{x:Type viewmodel:PassangerControlViewModel}">
+            <view:PasangerControl DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>-->
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Label Content="Red Devil&#xD;&#xA;Airport"
+               FontSize="25"
+               Width="180"
+               Height="85"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"/>
+            <Image Source="/Images/plane2.png"
+               FlowDirection="RightToLeft" 
+                   Height="85" 
+                   Margin="118,33,-16,-27.6"/>
+        </Grid>
+
+
+        <StackPanel Grid.Row="1">
+            <DockPanel Height="525">
+                <Menu DockPanel.Dock="Left" FontSize="20">
+                    <MenuItem Header="Plane information" Height="60"
+                              HorizontalAlignment="Stretch" Width="200"
+                              Click="PlaneInfomation_Click"/>
+                    <MenuItem Header="Buy ticket" Height="60"
+                              HorizontalAlignment="Stretch" Width="200"
+                              Click="BuyTicket_Click"/>
+                    <MenuItem Header="Change bio" Height="60"
+                              HorizontalAlignment="Stretch" Width="200"
+                              Click="ChangeBio_Click"/>
+                    <MenuItem Header="Log out" Height="60"
+                              HorizontalAlignment="Stretch" Width="200"
+                              Click="LogOut_Click"/>
+                </Menu>
+            </DockPanel>
+        </StackPanel>
+
+
+        <Grid Grid.Column="1"
+                    Background="#FFF0F0F0">
+            <TextBlock x:Name="helloText"
+                       FontSize="15"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,0,30,20"/>
+        </Grid>
+        <ContentControl Name="userControl" 
+                        Grid.Column="1" Grid.Row="1"
+                        Content="{Binding}"/>
     </Grid>
 </Window>
