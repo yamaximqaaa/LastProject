@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="View3.Visitor.VisotorControl.BuyTicket"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:View3.Visitor.VisotorControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <Grid Background="white">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="10,10,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Plane">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,10,0,10" Text="Plane number"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,10,0,10" Text="Airline"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,10,0,10" Text="City"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,10,0,10" Text="Price"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                    <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,10,0,10" Text="Choose plane"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"
+                               Name="plane_num"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Margin="0,10,0,10" Text="Choose plane"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"
+                               Name="_airline"/>
+                    <TextBlock Grid.Row="2" Grid.Column="3" Margin="0,10,0,10" Text="Choose plane"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"
+                               Name="_city"/>
+                    <TextBlock Grid.Row="3" Grid.Column="4" Margin="0,10,0,10" Text="Choose class"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"
+                               Name="_price"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Your information" Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="134"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Margin="0,10,0,10" Text="Name"/>
+                    <TextBlock Grid.Row="1" Margin="0,10,0,10" Text="Second name"/>
+                    <TextBlock Grid.Row="2" Margin="0,10,0,10" Text="Nationality"/>
+                    <TextBlock Grid.Row="3" Margin="0,10,0,10" Text="Passport number"/>
+                    <TextBlock Grid.Row="4" Margin="0,10,0,10" Text="Day of birthday"/>
+                    <TextBlock Grid.Row="5" Margin="0,10,0,10" Text="Sex"/>
+                    <TextBlock Grid.Row="6" Margin="0,10,0,10" Text="Class"/>
+
+                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="_name" MaxLength="20" Height="25"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="_secondName" MaxLength="20" Height="25"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="_nationality" MaxLength="3" Height="25"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" x:Name="_passportNum" MaxLength="9" Height="25"/>
+
+                    <DatePicker Grid.Row="4" Grid.Column="1"
+                                    VerticalAlignment="Center" 
+                                    Name="_dayOfBirthday"/>
+
+                    <ComboBox Grid.Row="5" Grid.Column="1" x:Name="_sex" Height="25"/>
+                    <ComboBox Grid.Row="6" Grid.Column="1" x:Name="_class" Height="25"
+                              SelectionChanged="class_changed"/>
+
+                    
+
+                    
+
+                        <Button Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" 
+                                x:Name="add_btn" Content="Buy ticket" HorizontalAlignment="Center" 
+                            Margin="0,0,0,0" VerticalAlignment="Center" Width="75" 
+                            Click="buy_btn_Click"/>
+                        
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+        <DataGrid Grid.Column="1" x:Name="myDataGrid" HorizontalAlignment="Stretch" 
+                  Margin="0,10,10,10" VerticalAlignment="Stretch"  
+                  SelectionChanged="myDataGrid_SelectionChanged"
+                  SelectionUnit="FullRow" SelectionMode="Single" IsReadOnly="True"/>
+
+
+
+
+
+
+
+    </Grid>
+</UserControl>

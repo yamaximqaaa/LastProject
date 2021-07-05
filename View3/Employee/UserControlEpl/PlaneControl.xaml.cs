@@ -136,7 +136,7 @@ namespace View3.Employee.UserControlEpl
                 airline = (Airline)_airline.SelectedIndex,
                 terminal = (Terminal)_trminal.SelectedIndex,
                 timeIn = day_In.DisplayDate.AddHours(in_Hours.SelectedIndex).AddMinutes(in_Minutes.SelectedIndex),
-                timeOut = day_In.DisplayDate.AddHours(in_Hours.SelectedIndex).AddMinutes(in_Minutes.SelectedIndex)
+                timeOut = day_Out.DisplayDate.AddHours(in_Hours.SelectedIndex).AddMinutes(in_Minutes.SelectedIndex)
             };
             Airport.AddPlane(plane);
         }
@@ -152,7 +152,7 @@ namespace View3.Employee.UserControlEpl
                 airline = (Airline)_airline.SelectedIndex,
                 terminal = (Terminal)_trminal.SelectedIndex,
                 timeIn = day_In.DisplayDate.AddHours(in_Hours.SelectedIndex).AddMinutes(in_Minutes.SelectedIndex),
-                timeOut = day_In.DisplayDate.AddHours(in_Hours.SelectedIndex).AddMinutes(in_Minutes.SelectedIndex)
+                timeOut = day_Out.DisplayDate.AddHours(in_Hours.SelectedIndex).AddMinutes(in_Minutes.SelectedIndex)
             };
             Airport.DelPlane(plane_num.Text);
             Airport.AddPlane(plane);

@@ -29,7 +29,7 @@ namespace View3.Employee
         {
             _currentUser = user;
             InitializeComponent();
-            switch (Airport.GetDayPart())
+            switch (Airport.GetDayPart())  // TODO: separate method
             {
                 case 1: { helloText.Text = $"Good night, {_currentUser.LastName} {_currentUser.Name}"; break; }
                 case 2: { helloText.Text = $"Good morning, {_currentUser.LastName} {_currentUser.Name}"; break; }
@@ -46,7 +46,7 @@ namespace View3.Employee
         #region MenuButtonsClick
         private void ChangeBio_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new ChangeBioViewModel();
+            DataContext = new ChangeBio(_currentUser);
         }
 
         private void PlaneControl_Click(object sender, RoutedEventArgs e)
@@ -60,8 +60,8 @@ namespace View3.Employee
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             _currentUser = null;
-            Close();
             new MainWindow().Show();
+            Close();
         }
         #endregion
 

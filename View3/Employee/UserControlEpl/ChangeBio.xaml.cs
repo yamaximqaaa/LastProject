@@ -23,14 +23,14 @@ namespace View3.Employee.UserControlEpl
     public partial class ChangeBio : UserControl
     {
         User currUser;
-        public ChangeBio()
+        public ChangeBio(User user)
         {
             InitializeComponent();
-            //currUser = user;
-            //textBoxFirstName.Text = user.Name;
-            //textBoxLastName.Text = user.LastName;
-            //textBoxLogin.Text = user.Login;
-            //passwordBox1.Password = user.Password;
+            currUser = user;
+            textBoxFirstName.Text = user.Name;
+            textBoxLastName.Text = user.LastName;
+            textBoxLogin.Text = user.Login;
+            passwordBox1.Password = user.Password;
         }
         private void Submit_Click(object sender, RoutedEventArgs e)
         {

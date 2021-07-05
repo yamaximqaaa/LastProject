@@ -3,23 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:View3.ViewModel.Visitor"
+        xmlns:view="clr-namespace:View3.Visitor.VisotorControl"
         xmlns:local="clr-namespace:View3.Visitor"
         mc:Ignorable="d"
-        Title="VisitorWindow"  Height="650" Width="1230">
-    <!--<Window.Resources>
-        <DataTemplate x:Name="ChangeBioTamplate" 
-                      DataType="{x:Type viewmodel:ChangeBioViewModel}">
-            <view:ChangeBio DataContext="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate x:Name="PlaneControlTamplate"
-                      DataType="{x:Type viewmodel:PlaneControlViewModel}">
-            <view:PlaneControl DataContext="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate x:Name="PassangerControlTamplate"
-                      DataType="{x:Type viewmodel:PassangerControlViewModel}">
-            <view:PasangerControl DataContext="{Binding}"/>
-        </DataTemplate>
-    </Window.Resources>-->
+        Title="VisitorWindow"  Height="650" Width="1230" Loaded="WindowLoaded">
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>

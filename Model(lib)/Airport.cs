@@ -175,7 +175,16 @@ namespace Model
             }
         }
 
-        
+        public static List<Plane> GetPlaneAfterDate(DateTime date)
+        {
+            ;
+            List<Plane> list = new List<Plane>();
+            foreach (var item in ConnToDb.GetPlaneAfterDate(date))
+            {
+                list.Add(item);
+            }
+            return list;
+        }
 
         public static bool AddPlane(Plane plane)
         {
@@ -297,6 +306,32 @@ namespace Model
             }
         }
 
+        public static int GetPrice(Class classF, Airline airline)
+        {
+            int price = 0;
+            switch (classF)
+            {
+                case Class.Econom: price += 1000;
+                    break;
+                case Class.Business: price += 5000;
+                    break;
+                default: throw new Exception("Choose class");
+            }
+            switch (airline)
+            {
+                case Airline.UkraineInternationalAirlines: price = (int)Math.Round(price * 1.2);
+                    break;
+                case Airline.Windrose: price = (int)Math.Round(price * 1.3);
+                    break;
+                case Airline.SkyUpAirlines: price = (int)Math.Round(price * 1.4);
+                    break;
+                case Airline.AzurAirUkraine:  price = (int)Math.Round(price * 1.5);
+                    break;
+                default:
+                    throw new Exception("Choose class");
+            }
+            return price;
+        }
         #endregion
 
         public static void AddPassanger(Passanger pas)

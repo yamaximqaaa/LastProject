@@ -88,8 +88,15 @@
     <Compile Include="ViewModel\Employee\ChangeBioViewModel.cs" />
     <Compile Include="ViewModel\Employee\PassangerControlViewModel.cs" />
     <Compile Include="ViewModel\Employee\PlaneControlViewModel.cs" />
+    <Compile Include="ViewModel\Visitor\PlaneInformationViewModel.cs" />
     <Compile Include="Visitor\VisitorWindow.xaml.cs">
       <DependentUpon>VisitorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visitor\VisotorControl\BuyTicket.xaml.cs">
+      <DependentUpon>BuyTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visitor\VisotorControl\PlaneInformation.xaml.cs">
+      <DependentUpon>PlaneInformation.xaml</DependentUpon>
     </Compile>
     <Page Include="Employee\EmployeeWindow.xaml">
       <SubType>Designer</SubType>
@@ -124,6 +131,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Visitor\VisitorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visitor\VisotorControl\BuyTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visitor\VisotorControl\PlaneInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

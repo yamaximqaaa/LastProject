@@ -79,5 +79,10 @@ namespace View3.Registration
             }
             Cursor = Cursors.Arrow;
         }
+
+        private void employeeClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -84,6 +84,8 @@ namespace DbConection
             else
                 return targetUser;
         }
+        
+
         #endregion
 
         #region GetDataSet
@@ -98,7 +100,16 @@ namespace DbConection
                 return planes.ToList();
             }
         }
-
+        public static List<DBPlane> GetPlaneAfterDate(DateTime date)
+        {
+            using (airportDB = new AirportContext())
+            {
+                var planes = from item in airportDB.Planes
+                             where item.timeOut>date select item;
+                airportDB.Planes.Load();
+                return planes.ToList();
+            }
+        }
         public static List<String> GetPlaneNums()
         {
             using (airportDB = new AirportContext())

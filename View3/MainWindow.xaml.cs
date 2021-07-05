@@ -55,7 +55,7 @@ namespace View3
                     }
                     else
                     {
-                        visitorWindow = new VisitorWindow();
+                        visitorWindow = new VisitorWindow(user);
                         visitorWindow.Show();
                         Close();
                     }

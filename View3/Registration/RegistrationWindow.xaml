@@ -87,7 +87,8 @@
                       Margin="0,151,0,0" 
                       Name="IsEmployee" 
                       VerticalAlignment="Top" 
-                      Width="167"/>
+                      Width="167"
+                      Click="employeeClick"/>
             <TextBlock Height="20" 
                        HorizontalAlignment="Center" 
                        Margin="0,190,0,0" 
